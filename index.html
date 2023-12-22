@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Modulo 9</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Lista de Tarefas</h1>
+        <button id="button-cadastrar" type="button">ADICIONAR +</button>
+        <button id="mostrar" type="button">MOSTRAR TAREFAS</button>
+    </header>
+
+    <div class="container">
+        <div class="container-formulario">
+                <form>
+                    <h5 id="nome" style="margin-bottom: 6px;">Insira o nome da Tarefa :</h5>
+                    <input id="input-nome" type="text" placeholder="Nome" required>
+                    <button id="add-button" type="submit" style="margin-top: 18px;">CADASTRAR</button>
+                    <button id="cancel-button" type="reset">CANCELAR</button>
+                </form>
+        </div>
+        <div class="container-lista-tarefas">
+            <ul id="qtd-tarefas" style="display: none;">
+                <li id="item-inicial">NENHUMA TAREFA ADICIONADA</li>
+            </ul>
+            <div class="tarefas-adicionadas" style="display: none;">
+                <h2>LISTA DE TAREFAS</h2>
+                <ul>
+                    
+                </ul>
+            </div>
+            <button id="close-button" type="reset" style="display: none;">FECHAR</button>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="/main.js"></script>
+</html>

@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Roboto', sans-serif;
+}
+body{
+    background-color: #b4b3b3;
+}
+header{
+    display: block;
+    background-color: #000;
+    color: #fff;
+    height: 90px;
+}
+header h1, #button-cadastrar{
+    margin-left: 200px;
+}
+
+.container{
+    max-width: 1500px;
+    max-height: 1800px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.container-formulario{
+    text-align: center;
+    display: block;
+    margin: 0 200px;
+    max-width: 300px;
+    width: 100%;
+    max-height: 500px;
+    height: 100%;
+}
+
+.container-lista-tarefas{
+    display: block;
+    max-width: 462px;
+    width: 100%;
+    text-align: center;
+}
+
+button{
+    height:30px ;
+    width: 110px;
+    cursor: pointer;
+}
+#close-button{
+    background-color: red;
+    color: #fff;
+    border: 1px solid #000;
+}
+#mostrar{
+    width: 150px;
+    background-color: blue;
+    border: none;
+    color: #fff;
+}
+#mostrar:hover{
+    background-color: cornflowerblue;
+}
+#add-button{
+    background-color: forestgreen;
+    border: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+#add-button:hover{
+    background-color: rgb(14, 221, 14);
+}
+
+#cancel-button{
+    background-color: red;
+    border: none;
+    font-weight: bold;
+    margin-left: 10px;
+}
+#cancel-button:hover{
+    background-color:darkred;
+}
+form{
+    background-color: antiquewhite;
+    width: 266px;
+    color: #000000;
+    height: 134px;
+    display: none;
+    /*display: block;*/
+}
+#close-button{
+    margin-top: 15px;
+}
+#button-cadastrar{
+    background-color: forestgreen;
+    border: none;
+    color: #fff;
+}
+#button-cadastrar:hover{
+    background-color: rgb(16, 165, 2);
+    color: #000;
+}
+input{
+    margin-bottom: 20px;
+    text-align: center;
+    height: 30px;
+}
+textarea{
+    text-align: center;
+    max-height: 100px;
+    height: 100%;
+    max-width: 200px;
+    width: 100%;
+    resize: none;
+}
+#item-inicial{
+    color: #fff;
+    background-color: #000;
+    list-style: none;
+}
+
+.novoItemLista{
+    background-color: #000;
+    color: #fff;
+}
+
+.tarefas-adicionadas, .tarefas-adicionadas h2,.tarefas-adicionadas li{
+    border: 1px solid #000;
+}
+
+.tarefas-adicionadas h2{
+    background-color: blue;
+    color: #fff;
+}
