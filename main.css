@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto',sans-serif;
+}
+body{
+    background-color: aquamarine;
+}
+.container{
+    max-width: 301px;
+    margin: 70px auto;
+}
+.form-mask h1{
+    color: black;
+}
+.form-mask{
+    color:#fff;
+    text-align: center;
+    display: block;
+}
+.form-mask form{
+    background-color: black;
+    max-width: 350px;
+    width: 100%;
+}
+
+input{
+    margin-top: 8px;
+    border-radius: 6px;
+    height: 30px;
+}
+
+form h4{
+    margin-top: 6px;
+}
+
+.botao-cadastrar{
+    margin-top: 18px;
+}
+.botao-cadastrar button{
+    cursor: pointer;
+    border: none;
+    background-color: rgb(12, 12, 11);
+    color: #fff;
+    height: 30px;
+    width: 100px;
+}
+
+form{
+    border-radius: 12px;
+    height: 380px;
+}
