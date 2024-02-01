@@ -118,15 +118,22 @@ header nav h3{
     .text-about h2{
         text-align: start;
     }
+    #products{
+        max-height: 800px;
+        width: 100%;
+    }
     .produtos{
         max-width: 600px;
         width: 100%;
     }
     .produtos ul{
+        max-height: 540px;
+        height: 100%;
         margin-top: 10px;
         display: grid;
         grid-template-columns: repeat(2, 49.5%);
         column-gap: 1%;
+        row-gap:20%;
     }
 }
 
