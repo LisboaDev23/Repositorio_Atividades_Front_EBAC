@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <title>ATIVIDADE MODULO 1</title>
     <style>
-        .carousel-inner img{
-            max-height: 800px;
-            height: 100%;
+        .carousel-item img{
+            max-width: 800px;
+            max-height: 400px;
             width: 100%;
+            height: 100%;
         }
         header{
             background-color: red;
@@ -17,6 +18,42 @@
         }
         header h1{
             margin-bottom: 0px;
+            color: white;
+        }
+        .card img {
+            max-width: 424px;
+            max-height:417px;
+            height: 100%;
+            width: 100%;
+        }
+
+        @media screen and (max-width:1024px){
+            .row{
+                display: grid;
+                grid-template-columns: 512px 512px;
+                text-align: center;
+            }
+            .card{
+                max-width:480px;
+                max-height: 659.19px;
+                width: 100%;
+                height: 100%;
+            }
+            .card img{
+                max-width: 478px;
+                max-height: 486px;
+            }
+            .col-4{
+                max-width: 500px;
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width:640px){
+            .row{
+                display: block;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -24,20 +61,70 @@
     <header>
         <h1>BLOG DOS HERÓIS</h1>
     </header>
-    <div class="carousel slide" data-bs-ride="carousel"><!--Para o bootstrap entender que isso é um carrosel, precisamos definir esse outro atributo data-bs-ride e definir seu valor para carrosel-->
-        <!--Para definirmos que a respectiva parte do corpo html será um carrosel usamos a classe carousel e ela terá outra classe slide para demonstrar as imagens-->
-        <div class="carousel-inner"><!--definindo o container do carrosel-->
-            <div class="carousel-item active"><!--Utilizando na div que representa um item que seria a imagem do carrosel, a classe carousel-item. A outra classe active é para o bootstrap entender que este será o primeiro item a ser exibido-->
-                <img src="./imagens/images.jpg" alt="MARVEL">
-            </div>
-            <div class="carousel-item">
-                <img src="./imagens/fundos-de-ecra-de-super-herois-2.jpg" alt="DC">
-            </div>
-            <div class="carousel-item">
-                <img src="./imagens/i377848.jpeg" alt="MARVEL VS DC">
+    <div class="container-fluid bg-dark text-center">
+        <div class="carousel slide" data-bs-ride="carousel"><!--Para o bootstrap entender que isso é um carrosel, precisamos definir esse outro atributo data-bs-ride e definir seu valor para carrosel-->
+            <!--Para definirmos que a respectiva parte do corpo html será um carrosel usamos a classe carousel e ela terá outra classe slide para demonstrar as imagens-->
+            <div class="carousel-inner"><!--definindo o container do carrosel-->
+                <div class="carousel-item active"><!--Utilizando na div que representa um item que seria a imagem do carrosel, a classe carousel-item. A outra classe active é para o bootstrap entender que este será o primeiro item a ser exibido-->
+                    <img src="./imagens/images.jpg" alt="MARVEL">
+                </div>
+                <div class="carousel-item">
+                    <img src="./imagens/fundos-de-ecra-de-super-herois-2.jpg" alt="DC">
+                </div>
+                <div class="carousel-item">
+                    <img src="./imagens/i377848.jpeg" alt="MARVEL VS DC">
+                </div>
             </div>
         </div>
     </div>
+
+    <section id="top-herois" class="bg-danger text-white">
+        <h2 style="text-align: center;">Hérois mais poderosos de cada universo!</h2>
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Homem Aranha</h4>
+                    </div>
+                    <img src="./imagens/spider.png" alt="spiderman">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat expedita 
+                        </p>
+                        <a href="./imagens/spider.png" class="btn btn-dark">Ver imagem</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Super-Homem</h4>
+                    </div>
+                    <img src="./imagens/superman.png" alt="superman">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat expedita 
+                        </p>
+                        <a href="./imagens/superman.png" class="btn btn-dark">Ver imagem</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Thor</h4>
+                    </div>
+                    <img src="./imagens/thor.png" alt="thor">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat expedita 
+                        </p>
+                        <a href="./imagens/spider.png" class="btn btn-dark">Ver imagem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
