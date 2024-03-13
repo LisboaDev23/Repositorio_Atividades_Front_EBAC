@@ -72,4 +72,23 @@ section .container .products img {
   border-radius: 16px;
 }
 
+@media screen and (max-width: 767px) {
+  .products {
+    display: block;
+  }
+  .product-item {
+    margin-bottom: 32px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  section .container {
+    max-width: 80%;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 48.5%);
+    column-gap: 3%;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */

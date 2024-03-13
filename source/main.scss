@@ -1,5 +1,5 @@
-@use '../config/formatacao';
-@use '../config/variaveis';
+@use 'config/formatacao';
+@use 'config/variaveis';
 
 @mixin formaProdutos(){
     display: grid;
@@ -77,29 +77,24 @@ section {
     }
 }
 
-//@media screen and (max-width:variaveis.$tamanhoMobile){
-    //section{
-//        .container{
-//            max-width: 75%;
-//        }
-//    }
-//   .products {
-//        display: block;
-//    }
-//.product-item  {
-//    margin-bottom: 32px;
-//}
-//}
+@media screen and (max-width: variaveis.$tamanhoMobile){
+    .products {
+        display: block;
+    }
+    .product-item  {
+        margin-bottom: 32px;
+    }
+}
 
-//@media screen and (max-width:variaveis.$tamanhoTablet){
-//    section{
-//        .container{
-//            max-width: 80%;
-//        }
-//    }
-//    .products{
-//        display: grid;
-//        grid-template-columns: repeat(2,48.5%);
-//        column-gap: 3%;
-//    }
-//}
+@media screen and (max-width: variaveis.$tamanhoTablet){
+    section{
+        .container{
+            max-width: 80%;
+        }
+    }
+    .products{
+        display: grid;
+        grid-template-columns: repeat(2,48.5%);
+        column-gap: 3%;
+    }
+}

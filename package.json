@@ -1,11 +1,10 @@
 {
-  "dependencies": {
-    "sass": "^1.71.1"
-  },
   "name": "exercicio",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "sass": "^1.71.1"
+  },
   "scripts": {
     "sass": "sass source/main.scss build/styles.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
