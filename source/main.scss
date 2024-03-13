@@ -1,0 +1,105 @@
+@use '../config/formatacao';
+@use '../config/variaveis';
+
+@mixin formaProdutos(){
+    display: grid;
+    grid-template-columns: repeat(3,32.66%);
+    list-style: none;
+    column-gap: 1%;
+    row-gap: 4%;
+    width: 100%;
+}
+@mixin posicaoContainer(){
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+
+body{
+    background-color: variaveis.$corDeFundo;
+}
+
+header{
+    background-color: variaveis.$corSecundaria;
+    color: variaveis.$corDeFundo;
+    position: sticky;
+    top: 0;
+    left: 0;
+}    
+    .container{
+        @include posicaoContainer();
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        ul{
+            display: flex;
+            justify-content: space-between;
+            li{
+                list-style: none;
+                font-weight: bold;
+                margin-left: 24px;
+                a{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+
+section {
+    color: variaveis.$corSecundaria;
+    margin-top: 16px;
+    .container{
+        @include posicaoContainer();
+        font-weight: bold;
+        display: block;
+        h2{
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .products{
+            @include formaProdutos();
+            li{
+                margin-left: 0px;
+            }
+            a{
+                &:hover{
+                    color: variaveis.$corSecundaria;
+                }
+            }
+            img{
+                width: 100%;
+                border-radius: 16px;
+            }
+        }
+    }
+}
+
+//@media screen and (max-width:variaveis.$tamanhoMobile){
+    //section{
+//        .container{
+//            max-width: 75%;
+//        }
+//    }
+//   .products {
+//        display: block;
+//    }
+//.product-item  {
+//    margin-bottom: 32px;
+//}
+//}
+
+//@media screen and (max-width:variaveis.$tamanhoTablet){
+//    section{
+//        .container{
+//            max-width: 80%;
+//        }
+//    }
+//    .products{
+//        display: grid;
+//        grid-template-columns: repeat(2,48.5%);
+//        column-gap: 3%;
+//    }
+//}
