@@ -1,0 +1,13 @@
+Para a realização da atividade do módulo 16
+ - Após criar a pasta
+	->No terminal dentro da past = (npm init) FEITO : OK
+	->(npm install --save-dev sass)//para instalar as dependencias do sass
+	->(npm install --save-dev gulp)// || || || do gulp
+ - Após isso, ir no arquivo package.json e criar um script: "gulp" : "gulp", ...
+	Criar o arquivo gulpfile.js
+	Criar um arquivo js básico só para exportarmos uma função para que outro arquivo possa utilizar
+ - Podemos exportar uma função utilizando a palavra chave [module.exports = função;]
+ - No arquivo que queremos requisitar essa função de outro arquivo utilizamos - [const variavel = require('./arquivo')]
+ - IMPORTANTE: Lembrar que em toda função declarada nesse arquivo gulp, devemos passar um callback no parâmetro e chama-lá no fim da função
+	isso é necessário pois é por meio disso que o gulp faz a leitura das tarefas.
+ - Feito isso, devemos exportar a função que é default, [exports.default = funçãoPadrão;]

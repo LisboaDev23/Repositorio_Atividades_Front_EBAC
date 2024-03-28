@@ -1,0 +1,1 @@
+function ಠ_ಠ638(){console.log("Olá tutor!")}module.ಠ_ಠ639=ಠ_ಠ638;
