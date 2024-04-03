@@ -1,0 +1,103 @@
+ALGORITMO, REALIZAÇÃO DA TAREFA MÓDULO 18
+
+1.iniciar um projeto node
+	- npm init
+
+2.instalar o pacote do grunt
+	- npm install --save-dev grunt
+
+3.vamos criar um novo script para rodar o comando grunt
+
+4.criar a estrutura de pastas
+src(código-fonte, arquivos javascript, less, e html sem descrições de caminhos com uso do @@) - dev(pasta de desenvolvimento, arquivo html e css puros) 
+- dist(arquivos de distribuição, aonde ficaram os códigos minimificados e onde serão usados em produção  )
+
+5.criar o arquivo gruntfile.js -> exportar o modulo = função(grunt){grunt.iniciarConfiguração({aqui ele recebe um parâmetro em JSON})}
+No JSON desse parâmetro, primeiramente deveremos passar o pacote aonde o grunt irá encontrar os comandos a serem rodados no terminal,
+no caso do nosso exemplo é no package.json.
+
+6.no método de iniciarmos a configuração, como dito antes, ele é um objeto JSON, nele temos propriedades:
+ 6.1-a primeira que devemos colocar é o package ou pkg, onde nele iremos fazer a leitura do arquivo json 
+ para rodar os nossos comandos no terminal
+ 6.2 -a segunda propriedade e a partir de agr em diante são as configurações das ferramentas do grunt onde
+ iremos especificar outras sub-propriedades. Então agr iremos configurar o less para alterarmos os arquivos em
+ desenvolvimento. (IMPORTANTE LEMBRAR QUE NO (LESS), TODOS OS ARGUMENTOS QUE ESTAMOS PASSANDO SÃO OBJETOS JSON)
+
+  6.2.1 - o primeiro argumento desse objeto less:{desenvolvimento} é para dizermos em qual ambiente estamos
+  trabalhando, nesse caso primeiramente é de desenvolvimento entao less->development->files, esse files é
+  outra propriedade de development onde nós vamos passar files:{'arquivo.destino' : 'arquivo.origem'}.
+  Sendo assim precisamos criar o primeiro arquivo de origem para que possa ser sobrescito o de destino.
+  
+  6.2.2 - o segundo argumento do objeto less é o production:{} onde estarão as configurações de produção do less
+  sendo assim temos dois argumentos seguindo a lógica less->production->options and files. Dessa forma, em options
+  iremos definir algumas opções que temos para oq desejamos realizar com os arquivos que estarão em produção, nesse
+  caso queremos comprimi-los para que eles ocupem menos espaço de memória então utilizaremos a propriedade (compress:true)
+  dessa forma os arquivos serão devidamente comprimidos, agr passamos o outro argumento que é o files:{'arquivo.min.destino' : 'arquivo.origem'}
+  Pronto agr a configuração para a compilação dos arquivos less está pronta, SHOW!
+ 
+ 6.3-vamos instalar os pacotes do grunt para compilarmos o less
+	- npm install --save-dev grunt-contrib-less 
+  6.3.1 -feito a instalação, lembrando que sempre que instalamos algum pacote, devemos carregar esse pacote-tarefa no arquivo grunt
+  utilizando um método grunt.loadNpmTask('nome-pacote');
+  6.3.2 -carregamos a instalação, agora iremos registrar uma nova tarefa, temos duas formas de ficar registrando tarefas no grunt,
+  dessas duas formas, ambas utilizamos o método grunt.registerTasks('tipo-tarefa', ['tarefa1',['tarefa1:desenvolvimento', 'tarefa2:produção']);
+  ou seja, nos parâmetros desse método ele recebe o tipo de tarefa que será registrada, seja ela default ou build para compilar o projeto ou qualquer outra função,
+  e no outro parâmetro ele recebe um array, nesse array colocamos as tarefas que serão realizados, e elas podem ser especificadas, exemplo caso seja uma tarefa 
+  apenas para ambiente de desenvolvimento, ou apenas uma tarefa para minimificar um arquivo, ou para produção e afins.
+
+(FICAR ATENTO POIS HORA OU OUTRA VOLTAREMOS PARA A LÓGICA DO ALGORITMO SOBRE A CONFIGURAÇÃO DO PROJETO GRUNT)
+
+7.para não precisarmos ficar execultando toda hora o npm run grunt para que seja compilado o nosso projeto, vamos baixar o pacote watch do grunt através do comando
+	- npm install --save-dev grunt-contrib-watch
+7.1 - carregar esse pacote usando o loadNpmTasks.
+
+7.2 -> 6.2.3 - Para conseguirmos configurar o watch para que o grunt observe nossos arquivos devemos retornar a lógica das propriedades dos objetos de configuração
+do grunt, sendo assim vamos para o objeto watch:{}, nas propriedades dele podemos ter muitos outros tipos de objetos para se trabalhar, nesse caso utilizaremos o less
+para que ele observe os nossos arquivos .less e nosso arquivo html para compilar as alterações reproduzidas por nós. Seguindo a primeira lógica para a propriedade
+less : watch->less->files and tasks, ambas propriedades do less recebem arrays como argumento para dizer em files primeiramente: quais arquivos queremos que observe, já em
+tasks definimos quais tarefas queremos que observe, nesse caso passaremos o less:development onde só observaremos os arquivos de desenvolvimento do less para acompanhar quaisquer alterações
+7.3 - vamos definir que a task watch será a task default para quando executar o npm run grunt ele fique automaticamente atualizando as nossas alterações e nos dando um feedback sobre as mesmas
+
+8.criar o arquivo index.html dentro de source, vamos só colocar um conteúdo para pequena representação.
+8.1- a representação de estilização na tag link para fazermos referência ao arquivo de estilização, não ficará exposto no código fonte, dessa forma iremos utilizar outro objeto do grunt
+chamado replace, onde irá fazer substituições necessárias para ocultarmos esses caminhos.
+8.2-vamos instalar o pacote replace 
+	-npm install --save-dev grunt-replace
+8.2.1 - carregue o pacote com o loadNpmTasks;
+8.3-vamos agora implementa-lo na configuração, utilizando o objeto replace:{}, vamos seguir a lógica 
+[
+replace->dev and dist - para diferenciarmos substituições de desenvolvimento apenas e de distribuição apenas, criar as pastas de dev e de dist
+
+->cada dev e dist podem receber - options and files = [{argumentos}] - defirmos opções para as substituições e os arquivos aonde teremos a substituição e a composição
+já em files são as especificações dos arquivos e oque queremos fazer com eles
+
+->(options)patterns = [{argumentos}] - dentro das opções, podemos definir padrões para as substituições, é nela que vamos informar ao grunt, especificações para a substituição
+
+->(patterns)match and replacement] dentro dos padrões vamos especificar o match que é o nome de endereço que utilizaremos no arquivo para substituir ex: ENDERECO_DO_HTML, já em 
+  replacement é onde passamos o real endereço onde está o código fonte, ele irá representar o real caminho onde está sendo compilado os códigos.
+
+->(files) expand,flatten,src e dest = todas essas opções dentro de files podem, expandir os arquivos, achatar os arquivos, src é para procuramos qual arquivo será buscado pelo grunt onde tem o @@,
+ e lembrar que essa propriedade src ela recebe um array onde armazena os arquivos a serem encontrados essas marcações. Por fim o dest é o destino aonde serão destinados esses novos arquivos definidos,
+ nesse caso é a pasta criada /dev aonde alocará esses arquivos de desenvolvimento
+]
+
+6.2.4 - voltando a lógica de configuração, vamos agora configurar a minimificação do arquivo html, htmlmin, ele tem uma propriedade chamada dist, e dentro de dist ele tem a propriedade options,
+dentro das opções temos algumas funcionalidades que ele pode fazer como por exemplo remover comentarios e excluir espaços em branco, vamos usar essas funcionalidades.
+Além das opções dentro do dist, que é a referência para o diretório de distribuição, temos os files que são os arquivos no qual vamos dizer qual é o arquivo destino e o arquivo origem para ele fazer
+essa minimificação. Nesse caso, quando estamos trabalhando com o html em produção, precisamos enviar o arquivo minificado para uma pasta temporária aonde ela será responsável por ser um receptor
+do dist, ou seja, quando executarmos a task replace:dist que é para substituir os caminhos do js e do css de produção, eles pegaram deste arquivo minificado nessa pasta temporária. 
+9.Feita toda essa configuração e com os caminhos e outras propriedades específicas, vamos instalar o pacote do htmlmin com 
+	- npm install --save-dev grunt-contrib-htmlmin
+9.1 - Carregar a nova task com o loadNpmTasks
+9.2 - Executar o comando no terminal aonde irá criar a pasta temporária com o arquivo minificado para que o replace possa enxergá-lo - (htmlmin:dist) minifique o arquivo da pasta src para a pasta de prebuild.
+9.3 - Executar o comando para que seja substituído os caminhos css e js minificados no arquivo html de produção(dist), esse comando é o replace:dist
+
+6.2.5 - Vamos limpar a pasta temporária usando o objeto clean na configuração, 1-baixar o grunt-contrib-clean, carregar a tarefa com o loadNpmTasks
+
+10- Quando for usar o clean, ele recebe um array com oq vc deseja apagar, nesse caso é a pasta temporária.
+ 
+6.2.5 - configurar o uglify para comprimir esses arquivos javascript, temos uma propriedade dentro do uglify que é o target, onde iremos definir quais são os arquivos que iremos minificar,
+isso será com a propriedade files dentro do target onde diremos a pasta de destino e a pasta de origem, simplesmente
+
+11- Vamos instalar o pacote grunt-contrib-uglify e carregá-lo no arquivo grunt
+  
