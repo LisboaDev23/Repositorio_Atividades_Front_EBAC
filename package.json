@@ -1,0 +1,9 @@
+{
+  "description": "",
+  "scripts": {
+    "sass": "sass"
+  },
+  "devDependencies": {
+    "sass": "^1.74.1"
+  }
+}
