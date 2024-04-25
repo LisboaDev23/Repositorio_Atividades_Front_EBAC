@@ -5,11 +5,13 @@ $(document).ready(function(){
         return respostaRequisicao.json();
     })
     .then(function(json){
+        $(".profile-avatar").attr("src", json.avatar_url);
         $(".profile-name").append(json.name);
         $(".profile-username").append(json.login);
         $("#qtd-repositorios").append(json.public_repos);
         $("#qtd-seguidores").append(json.followers);
         $("#qtd-seguindo").append(json.following);
+        $(".profile-link").attr("href", json.html_url);
     })
     .catch(function(){
         alert("Houve algum erro, tente novamente mais tarde!")
