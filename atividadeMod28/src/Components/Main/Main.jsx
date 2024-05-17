@@ -40,8 +40,6 @@ function Header ({}){
     }
     function clickBtnResultado(){
         setBotaoResultado(true);
-        calculaImc();
-        determinaGrupoImc()
     }
     return (
         <>
