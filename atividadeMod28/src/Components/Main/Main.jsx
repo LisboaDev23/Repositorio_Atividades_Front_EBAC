@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './Main.module.css'
 
-function Header ({}){
+function Main ({}){
     const [nomeUsuario, setNomeUsuario] = useState(null);
     const [botaoAbrirCalc, setBotaoAbrirCalc] = useState(false);
     const [telaInicialAberta, setTelaInicialAberta] = useState(true);
@@ -93,4 +93,4 @@ function Header ({}){
     )
 }
 
-export default Header
+export default Main
